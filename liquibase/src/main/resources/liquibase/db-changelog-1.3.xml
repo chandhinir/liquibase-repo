@@ -1,0 +1,21 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+ 
+  <changeSet id="alter_add_dept_column" author="chandhinir">
+  <preConditions onFail="MARK_RAN">
+           <not>
+               <columnExists schemaName="APPIANBIZ" tableName="department" columnName="dept_name"></columnExists>
+           </not>
+       </preConditions>
+    <addColumn tableName="department">
+        <column name="dept_name" type="varchar(50)"/>
+    </addColumn>
+  </changeSet>
+   
+  <changeSet id="tag-1.3" author="chandhinir">
+    <tagDatabase tag="1.3" />
+  </changeSet>
+ 
+</databaseChangeLog>
